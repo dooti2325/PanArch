@@ -50,3 +50,37 @@ const revealOptions = {
 const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
 
 revealElements.forEach(el => revealObserver.observe(el));
+
+// Custom Cursor
+const cursor = document.querySelector('.custom-cursor');
+const follower = document.querySelector('.custom-cursor-follower');
+let mouseX = 0, mouseY = 0;
+let followerX = 0, followerY = 0;
+
+if (cursor && follower) {
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
+  });
+
+  const animateFollower = () => {
+    followerX += (mouseX - followerX) * 0.15;
+    followerY += (mouseY - followerY) * 0.15;
+    follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
+    requestAnimationFrame(animateFollower);
+  };
+  animateFollower();
+
+  const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, label, .service-card');
+  interactiveElements.forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('hover');
+      follower.classList.add('hover');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+      follower.classList.remove('hover');
+    });
+  });
+}
