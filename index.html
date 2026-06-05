@@ -1,236 +1,620 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="PANARCH is a Nagpur-based technology service company building AI models, AI agents, automation, apps, websites, and cyber security solutions."
-    />
-    <meta name="theme-color" content="#090909" />
-    <meta property="og:title" content="PANARCH | AI, Automation, Apps, Web & Cyber Security" />
-    <meta
-      property="og:description"
-      content="Service-based technology partner near Hanuman Temple, Ajni, Wardha Road, Nagpur."
-    />
-    <meta property="og:image" content="assets/logo.jpg" />
-    <title>PANARCH | AI, Automation, Apps, Web & Cyber Security</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="PANARCH home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 48V25c0-8 6-14 14-14h4v12h-4c-2 0-3 1-3 3v16l13-7v13L18 60z" fill="url(#brandGold)"/>
-            <path d="M35 11c12 8 18 10 18 22v15l-11-6V30c0-3-2-5-7-8V11z" fill="url(#brandLight)"/>
-            <defs>
-              <linearGradient id="brandGold" x1="18" y1="11" x2="32" y2="60" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ffd35e"/>
-                <stop offset="1" stop-color="#f2a816"/>
-              </linearGradient>
-              <linearGradient id="brandLight" x1="35" y1="11" x2="53" y2="48" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ffffff"/>
-                <stop offset="1" stop-color="#ffd35e"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </span>
-        <span class="brand-text">PANARCH</span>
-      </a>
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        data-nav-toggle
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav" id="site-nav" data-nav>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#security">Security</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-content">
-          <p class="eyebrow">Nagpur technology services</p>
-          <h1 id="hero-title">PanArch AI</h1>
-          <p class="hero-copy">
-            <strong>Innovate. Automate. Elevate.</strong><br>
-            AI models, intelligent agents, automation, apps, web platforms, and cyber security delivered from
-            Ajni, Wardha Road.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#contact">Start a project</a>
-            <a class="button ghost" href="#services">View services</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PanArch | AI Solutions & Digital Innovation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">P</div>
+      <span class="nav-logo-text">PanArch</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#tech">Tech</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get Started →</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#why" onclick="toggleMenu()">Why Us</a>
+    <a href="#process" onclick="toggleMenu()">Process</a>
+    <a href="#tech" onclick="toggleMenu()">Tech</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- Page Indicator -->
+  <div class="page-indicator" id="pageIndicator">
+    <div class="page-dot active" data-section="hero" onclick="scrollTo(0,0)"></div>
+    <div class="page-dot" data-section="services"></div>
+    <div class="page-dot" data-section="about"></div>
+    <div class="page-dot" data-section="why"></div>
+    <div class="page-dot" data-section="process"></div>
+    <div class="page-dot" data-section="tech"></div>
+    <div class="page-dot" data-section="contact"></div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="grid-lines"></div>
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+    </div>
+    <div class="hero-visual">
+      <div class="tech-ring">
+        <div class="tech-dot"></div>
+      </div>
+      <div class="tech-ring">
+        <div class="tech-dot"></div>
+      </div>
+      <div class="tech-ring">
+        <div class="tech-dot"></div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ AI-POWERED DIGITAL SOLUTIONS</div>
+      <h1 class="hero-title">
+        <span class="line"><span class="word" style="animation-delay:0.1s">PanArch</span></span>
+        <span class="line"><span class="word gold" style="animation-delay:0.25s">Technologies</span></span>
+      </h1>
+      <p class="hero-desc" style="font-size:1.4rem; color:var(--gold); font-weight:600; margin-bottom: 1rem;">Innovate.
+        Automate. Elevate.</p>
+      <p class="hero-desc">PanArch crafts cutting-edge AI models, intelligent agents, custom applications, and secure
+        digital solutions — serving both private enterprises and government organizations across India.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explore Services →</a>
+        <a href="#contact" class="btn-secondary">Talk to Us</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num" data-count="50">0+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="30">0+</div>
+          <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="8">0</div>
+          <div class="stat-label">Services Offered</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section id="services">
+    <div class="reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Core Services</h2>
+      <p class="section-desc">From intelligent AI models to ironclad cybersecurity — we build the digital backbone your
+        business needs.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">🤖</div>
+        <h3 class="service-title">AI Model Development</h3>
+        <p class="service-desc">Custom machine learning and deep learning models tailored for your domain — from NLP to
+          computer vision and predictive analytics.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">🧠</div>
+        <h3 class="service-title">AI Agents</h3>
+        <p class="service-desc">Autonomous intelligent agents that reason, plan, and execute tasks — automating complex
+          workflows across your enterprise.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">📱</div>
+        <h3 class="service-title">App Development</h3>
+        <p class="service-desc">Native and cross-platform mobile apps with polished UX, scalable architecture, and
+          seamless AI integration baked in.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">⚡</div>
+        <h3 class="service-title">AI Automation</h3>
+        <p class="service-desc">End-to-end intelligent process automation — eliminate repetitive work, reduce errors,
+          and free your team for high-value tasks.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-icon">🌐</div>
+        <h3 class="service-title">Web Development</h3>
+        <p class="service-desc">High-performance, visually stunning web applications built on modern stacks — React,
+          Next.js, Node.js, and beyond.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-icon">🔐</div>
+        <h3 class="service-title">Cyber Security</h3>
+        <p class="service-desc">Comprehensive security audits, penetration testing, threat intelligence, and 24/7
+          monitoring to protect your critical assets.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">07</div>
+        <div class="service-icon">💻</div>
+        <h3 class="service-title">Software Development</h3>
+        <p class="service-desc">Custom enterprise software solutions, ERP systems, and SaaS products engineered for
+          reliability, scale, and performance.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">08</div>
+        <div class="service-icon">☁️</div>
+        <h3 class="service-title">Cloud & DevOps</h3>
+        <p class="service-desc">Cloud migration, infrastructure as code, CI/CD pipelines, and containerized deployments
+          for speed and resilience.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">09</div>
+        <div class="service-icon">🏛️</div>
+        <h3 class="service-title">Government Solutions</h3>
+        <p class="service-desc">Specialized digital transformation projects for government bodies — compliant, secure,
+          and built for public-scale deployment.</p>
+        <div class="service-arrow">→</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">Nagpur's Premier AI & Tech Studio</h2>
+        <p class="section-desc" style="margin-bottom:2rem">Founded and headquartered in Nagpur, PanArch is a technology
+          company specializing in AI-first solutions. We serve private enterprises seeking digital advantage and
+          government institutions requiring reliable, secure systems. Our multidisciplinary team of engineers, AI
+          researchers, and designers delivers solutions that actually work — on time, on budget, and beyond
+          expectations.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-text">
+              <h4>Private & Government Clients</h4>
+              <p>Trusted by corporations and public sector organizations across central India for mission-critical
+                digital projects.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">🚀</div>
+            <div class="feature-text">
+              <h4>AI-First Approach</h4>
+              <p>Every solution we build incorporates intelligence — from small automations to full-scale AI platforms.
+              </p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>Security by Design</h4>
+              <p>Security isn't an afterthought at PanArch. Every product is built with data protection and compliance
+                from day one.</p>
+            </div>
           </div>
         </div>
-        <div class="hero-graphic" aria-hidden="true">
-          <div class="logo-glow-wrapper">
-            <div class="logo-glow-bg"></div>
-            <img src="assets/logo.jpg" alt="PANARCH Logo" class="hero-logo-img" />
+      </div>
+      <div class="reveal-right">
+        <div class="about-visual">
+          <div class="about-img-frame">
+            <div class="about-img-inner">
+              <div class="pa-logo-big">PA</div>
+            </div>
+          </div>
+          <div class="about-badge-float top-right">
+            <div class="badge-val">50+</div>
+            <div class="badge-lab">Projects Delivered</div>
+          </div>
+          <div class="about-badge-float bottom-left">
+            <div class="badge-val">100%</div>
+            <div class="badge-lab">Client Satisfaction</div>
           </div>
         </div>
-        <div class="hero-strip" aria-label="Core offerings">
-          <span>AI Model</span>
-          <span>AI Agents</span>
-          <span>App Dev</span>
-          <span>AI Automation</span>
-          <span>Web Dev</span>
-          <span>Cyber Sec</span>
-        </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="intro section reveal">
-        <div class="section-copy">
-          <p class="eyebrow">Service-based build partner</p>
-          <h2>From idea to deployed system.</h2>
-        </div>
-        <p>
-          PANARCH helps businesses turn operational bottlenecks into dependable software: model-backed workflows,
-          agentic tools, secure dashboards, mobile apps, and modern web experiences that are ready to ship.
+  <!-- ==================== WHY US ==================== -->
+  <section id="why">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-label" style="justify-content:center">Why PanArch</div>
+      <h2 class="section-title">The PanArch Difference</h2>
+      <p class="section-desc" style="margin:0 auto">We don't just write code — we build partnerships, solve real
+        problems, and deliver measurable results.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">⚡</span>
+        <h3 class="why-title">Rapid Delivery</h3>
+        <p class="why-desc">Agile development sprints with weekly updates — from concept to production faster than
+          traditional agencies.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.1s">
+        <span class="why-icon">🔬</span>
+        <h3 class="why-title">R&D Focused</h3>
+        <p class="why-desc">Our team actively researches the latest AI advancements so your solutions are always
+          state-of-the-art.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.2s">
+        <span class="why-icon">🤝</span>
+        <h3 class="why-title">End-to-End Partner</h3>
+        <p class="why-desc">Strategy, design, development, deployment, and maintenance — one team for your entire
+          digital journey.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.3s">
+        <span class="why-icon">📊</span>
+        <h3 class="why-title">Data-Driven</h3>
+        <p class="why-desc">Every decision is backed by data. We define KPIs upfront and optimize relentlessly toward
+          your goals.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.4s">
+        <span class="why-icon">🏆</span>
+        <h3 class="why-title">Proven Expertise</h3>
+        <p class="why-desc">A portfolio spanning AI, web, mobile, and security — with real deployments for real clients
+          across industries.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.5s">
+        <span class="why-icon">🔒</span>
+        <h3 class="why-title">Secure & Compliant</h3>
+        <p class="why-desc">ISO-aligned practices, NDA-protected engagements, and government-grade security standards on
+          every project.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.6s">
+        <span class="why-icon">🌍</span>
+        <h3 class="why-title">Local + Global</h3>
+        <p class="why-desc">Based in Nagpur with a team that thinks globally — combining local understanding with
+          world-class technical skills.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.7s">
+        <span class="why-icon">💡</span>
+        <h3 class="why-title">Innovation-Led</h3>
+        <p class="why-desc">We challenge assumptions and push boundaries — bringing novel approaches that give your
+          business a real edge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROCESS ==================== -->
+  <section id="process">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-label" style="justify-content:center">How We Work</div>
+      <h2 class="section-title">Our Delivery Process</h2>
+      <p class="section-desc" style="margin:0 auto">A structured, transparent approach that keeps you informed and
+        confident at every stage.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h4 class="step-title">Discovery</h4>
+        <p class="step-desc">Deep-dive into your goals, challenges, and technical landscape to define the scope and
+          strategy.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h4 class="step-title">Design</h4>
+        <p class="step-desc">Architecture blueprints, UX wireframes, and solution design — signed off before a single
+          line of code.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h4 class="step-title">Build</h4>
+        <p class="step-desc">Agile sprints with weekly demos, code reviews, and transparent progress reporting
+          throughout.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h4 class="step-title">Test & Launch</h4>
+        <p class="step-desc">Rigorous QA, performance testing, security audits, and a smooth production deployment.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <h4 class="step-title">Support</h4>
+        <p class="step-desc">Ongoing maintenance, monitoring, feature enhancements, and dedicated post-launch support.
         </p>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="section services" id="services" aria-labelledby="services-title">
-        <div class="section-copy reveal">
-          <p class="eyebrow">What we build</p>
-          <h2 id="services-title">Focused technology services.</h2>
-        </div>
-        <div class="service-grid">
-          <article class="service-card accent-gold reveal">
-            <span class="service-code">AI</span>
-            <h3>AI Models</h3>
-            <p>Custom model strategy, prototyping, evaluation, and integration for business-specific tasks.</p>
-          </article>
-          <article class="service-card accent-teal reveal reveal-delay-1">
-            <span class="service-code">AG</span>
-            <h3>AI Agents</h3>
-            <p>Research, support, sales, and internal workflow agents with guardrails and practical handoffs.</p>
-          </article>
-          <article class="service-card accent-blue reveal reveal-delay-2">
-            <span class="service-code">AD</span>
-            <h3>App Dev</h3>
-            <p>Mobile and web applications with clean UX, reliable backends, and deployment-ready foundations.</p>
-          </article>
-          <article class="service-card accent-coral reveal">
-            <span class="service-code">AU</span>
-            <h3>AI Automation</h3>
-            <p>Automated reporting, document processing, CRM flows, lead routing, and data-entry reduction.</p>
-          </article>
-          <article class="service-card accent-lime reveal reveal-delay-1">
-            <span class="service-code">WD</span>
-            <h3>Web Dev</h3>
-            <p>Fast websites, landing experiences, dashboards, admin tools, and content-managed platforms.</p>
-          </article>
-          <article class="service-card accent-red reveal reveal-delay-2">
-            <span class="service-code">CS</span>
-            <h3>Cyber Sec</h3>
-            <p>Security reviews, hardening, access controls, monitoring basics, and safer release practices.</p>
-          </article>
-        </div>
-      </section>
+  <!-- ==================== CLIENTS ==================== -->
+  <section id="clients" style="padding:5rem 0">
+    <div class="clients-header reveal">
+      <div class="clients-badge">TRUSTED BY FORWARD-THINKING ORGANIZATIONS</div>
+      <p style="color:var(--muted);font-size:0.9rem">Private enterprises &amp; government bodies across central India
+      </p>
+    </div>
+    <div class="clients-track">
+      <div class="clients-inner" id="marqueeInner">
+        <span class="client-pill">🏢 Private Enterprises</span>
+        <span class="client-pill">🏛️ Government Bodies</span>
+        <span class="client-pill">🏥 Healthcare Organizations</span>
+        <span class="client-pill">🏦 Financial Institutions</span>
+        <span class="client-pill">🎓 Education Sector</span>
+        <span class="client-pill">🏗️ Infrastructure Projects</span>
+        <span class="client-pill">🛒 Retail & E-commerce</span>
+        <span class="client-pill">🚗 Logistics & Transport</span>
+        <span class="client-pill">⚡ Energy Sector</span>
+        <span class="client-pill">📡 Telecom Companies</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="client-pill">🏢 Private Enterprises</span>
+        <span class="client-pill">🏛️ Government Bodies</span>
+        <span class="client-pill">🏥 Healthcare Organizations</span>
+        <span class="client-pill">🏦 Financial Institutions</span>
+        <span class="client-pill">🎓 Education Sector</span>
+        <span class="client-pill">🏗️ Infrastructure Projects</span>
+        <span class="client-pill">🛒 Retail & E-commerce</span>
+        <span class="client-pill">🚗 Logistics & Transport</span>
+        <span class="client-pill">⚡ Energy Sector</span>
+        <span class="client-pill">📡 Telecom Companies</span>
+      </div>
+    </div>
+  </section>
 
-      <section class="section process" id="process" aria-labelledby="process-title">
-        <div class="section-copy reveal">
-          <p class="eyebrow">How PANARCH works</p>
-          <h2 id="process-title">A clear path from scope to launch.</h2>
-        </div>
-        <ol class="timeline">
-          <li class="reveal">
-            <span>01</span>
-            <h3>Discover</h3>
-            <p>Clarify goals, users, data, risks, and what success should look like after deployment.</p>
-          </li>
-          <li class="reveal reveal-delay-1">
-            <span>02</span>
-            <h3>Prototype</h3>
-            <p>Build the first useful version quickly, test assumptions, and make the system tangible.</p>
-          </li>
-          <li class="reveal reveal-delay-2">
-            <span>03</span>
-            <h3>Ship</h3>
-            <p>Deploy with analytics, performance checks, secure configuration, and maintainable handover.</p>
-          </li>
-        </ol>
-      </section>
+  <!-- ==================== TECH STACK ==================== -->
+  <section id="tech">
+    <div class="reveal">
+      <div class="section-label">Our Stack</div>
+      <h2 class="section-title">Technologies We Master</h2>
+      <p class="section-desc">A powerful, carefully selected toolkit spanning AI frameworks, cloud platforms, and modern
+        development tools.</p>
+    </div>
+    <div class="tech-grid reveal">
+      <div class="tech-item"><span class="tech-emoji">🐍</span>
+        <div class="tech-name">Python</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">⚛️</span>
+        <div class="tech-name">React</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🟩</span>
+        <div class="tech-name">Node.js</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🔥</span>
+        <div class="tech-name">TensorFlow</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🤗</span>
+        <div class="tech-name">HuggingFace</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">☁️</span>
+        <div class="tech-name">AWS</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🐳</span>
+        <div class="tech-name">Docker</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">☸️</span>
+        <div class="tech-name">Kubernetes</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🗄️</span>
+        <div class="tech-name">PostgreSQL</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">📱</span>
+        <div class="tech-name">Flutter</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">⚡</span>
+        <div class="tech-name">FastAPI</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🧮</span>
+        <div class="tech-name">PyTorch</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🔷</span>
+        <div class="tech-name">TypeScript</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🌊</span>
+        <div class="tech-name">Next.js</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🔴</span>
+        <div class="tech-name">Redis</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🔐</span>
+        <div class="tech-name">Kali Linux</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🌐</span>
+        <div class="tech-name">GCP</div>
+      </div>
+      <div class="tech-item"><span class="tech-emoji">🤖</span>
+        <div class="tech-name">LangChain</div>
+      </div>
+    </div>
+  </section>
 
-      <section class="section security" id="security" aria-labelledby="security-title">
-        <div class="security-panel reveal">
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact">
+    <div class="contact-bg-orb"></div>
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-label" style="justify-content:center">Get In Touch</div>
+      <h2 class="section-title">Let's Build Something Great</h2>
+      <p class="section-desc" style="margin:0 auto">Have a project in mind? Whether you're a startup, enterprise, or
+        government body — we'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div style="margin-bottom:1rem">
+          <div class="section-label">Direct Contact</div>
+          <h3 style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:0.5rem">PanArch
+            Technologies</h3>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.7">Reach out directly — we respond within 24 hours
+            for all project inquiries.</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">📍</div>
           <div>
-            <p class="eyebrow">Cyber security included</p>
-            <h2 id="security-title">Build fast without leaving the basics exposed.</h2>
+            <div class="contact-item-label">Office Address</div>
+            <div class="contact-item-val">Ajni Near Hanuman Temple,<br>Wardha Road, Nagpur — 440015<br>Maharashtra,
+              India</div>
           </div>
-          <p>
-            Every project can include secure authentication planning, input validation, access review, data handling
-            notes, dependency hygiene, and deployment checks suited to the size of the product.
-          </p>
         </div>
-      </section>
-
-      <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <div class="section-copy reveal">
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Plan your next build with PANARCH.</h2>
-        </div>
-        <div class="contact-layout">
-          <div class="contact-details reveal">
-            <p class="detail-label">Office</p>
-            <address>Ajni, Near Hanuman Temple, Wardha Road, Nagpur</address>
-            <p class="detail-label">Services</p>
-            <p>AI Model, AI Agents, App Dev, AI Automation, Web Dev, Cyber Sec</p>
+        <div class="contact-item">
+          <div class="contact-icon-box">📧</div>
+          <div>
+            <div class="contact-item-label">Email Us</div>
+            <div class="contact-item-val"><a href="mailto:pankajpagare25a@gmail.com"
+                style="color:var(--gold);text-decoration:none">pankajpagare25a@gmail.com</a></div>
           </div>
-          <form class="contact-form reveal reveal-delay-1" name="panarch-enquiry" method="post" data-netlify="true">
-            <input type="hidden" name="form-name" value="panarch-enquiry" />
-            <label>
-              <span>Name</span>
-              <input name="name" autocomplete="name" required />
-            </label>
-            <label>
-              <span>Email or phone</span>
-              <input name="contact" autocomplete="email" required />
-            </label>
-            <label>
-              <span>Project need</span>
-              <select name="service" required>
-                <option value="">Choose a service</option>
-                <option>AI Model</option>
-                <option>AI Agents</option>
-                <option>App Dev</option>
-                <option>AI Automation</option>
-                <option>Web Dev</option>
-                <option>Cyber Sec</option>
-              </select>
-            </label>
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="4" required></textarea>
-            </label>
-            <button class="button primary" type="submit">Send enquiry</button>
-          </form>
         </div>
-      </section>
-    </main>
+        <div class="contact-item">
+          <div class="contact-icon-box">📞</div>
+          <div>
+            <div class="contact-item-label">Call Us</div>
+            <div class="contact-item-val"><a href="tel:+919834351805" style="color:var(--gold);text-decoration:none">+91
+                98343 51805</a></div>
+          </div>
+        </div>
+        <div
+          style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:12px;padding:1.5rem;margin-top:1rem">
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7">🕐 <strong style="color:var(--text)">Working
+              Hours:</strong> Monday – Saturday, 9:00 AM – 7:00 PM IST</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;margin-top:0.5rem">⚡ <strong
+              style="color:var(--text)">Response Time:</strong> We typically respond within 4–8 business hours</p>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" id="fname" placeholder="Rahul Sharma">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="femail" placeholder="you@company.com">
+        </div>
+        <div class="form-group">
+          <label>Organization / Company</label>
+          <input type="text" id="fcompany" placeholder="Your Company or Organization">
+        </div>
+        <div class="form-group">
+          <label>Service Interested In *</label>
+          <select id="fservice">
+            <option value="" disabled selected>Select a service</option>
+            <option>AI Model Development</option>
+            <option>AI Agents</option>
+            <option>App Development</option>
+            <option>AI Automation</option>
+            <option>Web Development</option>
+            <option>Cyber Security</option>
+            <option>Software Development</option>
+            <option>Government Solutions</option>
+            <option>Multiple / Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Project Brief *</label>
+          <textarea id="fmessage"
+            placeholder="Tell us about your project, goals, and any specific requirements..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Send Message →</button>
+      </div>
+    </div>
+  </section>
 
-    <footer class="site-footer">
-      <p>© <span data-year></span> PANARCH. Nagpur, Maharashtra.</p>
-      <a href="#top">Back to top</a>
-    </footer>
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div
+            style="width:38px;height:38px;background:linear-gradient(135deg,#F5A623,#E8891A);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:#000">
+            P</div>
+          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:var(--text)">PanArch</span>
+        </div>
+        <p>Building intelligent systems for a smarter tomorrow. Your AI & technology partner in Nagpur, serving private
+          and government clients across India.</p>
+        <p style="font-size:0.8rem;color:rgba(138,132,128,0.7);margin-top:0.5rem">Ajni Near Hanuman Temple, Wardha
+          Road,<br>Nagpur — Maharashtra, India</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">AI Model Development</a></li>
+          <li><a href="#services">AI Agents</a></li>
+          <li><a href="#services">App Development</a></li>
+          <li><a href="#services">AI Automation</a></li>
+          <li><a href="#services">Web Development</a></li>
+          <li><a href="#services">Cyber Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why">Why PanArch</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#tech">Technology</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:pankajpagare25a@gmail.com">📧 Email Us</a></li>
+          <li><a href="tel:+919834351805">📞 +91 98343 51805</a></li>
+          <li><a href="#contact">💬 Project Inquiry</a></li>
+        </ul>
+        <div style="margin-top:1.5rem">
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.8rem;letter-spacing:0.5px">FOLLOW US</p>
+          <div class="social-links">
+            <a href="#" class="social-link">in</a>
+            <a href="#" class="social-link">tw</a>
+            <a href="#" class="social-link">gh</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PanArch Technologies. All rights reserved. | Nagpur, Maharashtra</p>
+      <p>Crafted with ❤️ in India</p>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✅</span>
+    <span id="toastMsg">Message sent! We'll be in touch within 24 hours.</span>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
 </html>
